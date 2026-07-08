@@ -22,6 +22,13 @@ function showLogin() {
 
 async function register() {
 
+
+    console.log(document.getElementById("name"));
+    console.log(document.getElementById("email"));
+    console.log(document.getElementById("exam"));
+    console.log(document.getElementById("password"));
+    console.log(document.getElementById("confirmPassword"));
+
     const name = document.getElementById("name").value.trim();
 
     const email = document.getElementById("email").value.trim();
