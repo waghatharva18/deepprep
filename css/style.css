@@ -1,0 +1,221 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:90%;
+    max-width:1000px;
+    display:flex;
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.left{
+    width:45%;
+    background:#2563eb;
+    color:white;
+    padding:60px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.left h1{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.left h3{
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.left p{
+    line-height:1.8;
+}
+
+.right{
+    width:55%;
+    padding:50px;
+}
+
+.right h2{
+    margin-bottom:30px;
+    color:#2563eb;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border:1px solid #2563eb;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.adminBtn{
+    background:#16a34a;
+}
+
+.adminBtn:hover{
+    background:#15803d;
+}
+
+p{
+    margin-top:18px;
+    text-align:center;
+}
+
+span{
+    color:#2563eb;
+    cursor:pointer;
+    font-weight:600;
+}
+
+hr{
+    margin:25px 0;
+}
+
+@media(max-width:768px){
+
+.container{
+    flex-direction:column;
+}
+
+.left,
+.right{
+    width:100%;
+}
+
+.left{
+    text-align:center;
+    padding:40px 25px;
+}
+
+.right{
+    padding:30px;
+}
+
+}
+/* ================= Register Button ================= */
+
+.registerSection{
+
+    margin:20px 0;
+
+    text-align:center;
+
+}
+
+.registerSection p{
+
+    margin-bottom:12px;
+
+    color:#555;
+
+    font-size:16px;
+
+}
+
+.registerBtn{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.registerBtn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* Forgot Password Button */
+
+.forgotBtn{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:12px;
+
+    background:#f3f4f6;
+
+    color:#2563eb;
+
+    border:2px solid #2563eb;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.forgotBtn:hover{
+
+    background:#2563eb;
+
+    color:white;
+
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DeepPrep Dashboard</title>
+
+<link rel="stylesheet" href="css/app.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Mobile Header -->
+
+<div class="mobileHeader">
+
+    <button class="menuBtn" onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <h2>DeepPrep</h2>
+
+</div>
+
+<div class="sidebar" id="sidebar">
+
+<h2>DeepPrep</h2>
+
+<button onclick="showSection('dashboard')">🏠 Dashboard</button>
+
+<button onclick="showSection('syllabus')">📚 Syllabus</button>
+
+<button onclick="showSection('revision')">📅 Revision</button>
+
+<button onclick="showSection('mock')">📝 Mock Tests</button>
+
+<button onclick="showSection('profile')">👤 Profile</button>
+
+<button onclick="logout()">🚪 Logout</button>
+
+</div>
+
+<div class="main">
+
+<!-- Dashboard -->
+
+<div id="dashboard" class="section">
+
+<h1>Welcome Student 👋</h1>
+
+<div class="announcementBanner">
+
+    <div class="announcementHeader">
+        📢 Latest Announcement
+    </div>
+
+    <div id="studentAnnouncement">
+
+        No announcements.
+
+    </div>
+
+</div>
+
+<br>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>📚 Subjects</h3>
+
+<p id="subjectCount">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>✅ Completed</h3>
+
+<p id="completedCount">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>📅 Revisions</h3>
+
+<p id="revisionCount">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>📝 Mock Tests</h3>
+
+<p id="mockCount">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 Average %</h3>
+
+<p id="averageScore">0%</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Syllabus -->
+
+<!-- ================= Syllabus ================= -->
+
+<div id="syllabus" class="section" style="display:none;">
+
+<h2>📚 My Subjects</h2>
+
+<div class="subjectTopBar">
+
+<input
+
+type="text"
+
+id="newSubject"
+
+placeholder="Enter Subject Name">
+
+<button onclick="createSubject()">
+
+➕ Add Subject
+
+</button>
+
+</div>
+
+<br>
+
+<div id="subjectsContainer">
+
+<!-- Subject Cards will come here -->
+
+</div>
+
+</div>
+
+<!-- Revision -->
+
+<div id="revision" class="section" style="display:none;">
+
+<h2>Revision Planner</h2>
+
+<input
+type="text"
+id="revisionTopic"
+placeholder="Topic">
+
+<input
+type="date"
+id="revisionDate">
+
+<button onclick="addRevision()">
+
+Add Revision
+
+</button>
+
+<br><br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Topic</th>
+
+<th>Revision Date</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="revisionTable"></tbody>
+
+</table>
+
+</div>
+<!-- ================= MOCK TEST ================= -->
+
+<div id="mock" class="section" style="display:none;">
+
+    <h2>📝 Mock Test Tracker</h2>
+
+    <input type="text" id="mockName" placeholder="Mock Test Name">
+
+    <input type="number" id="marksObtained" placeholder="Marks Obtained">
+
+    <input type="number" id="totalMarks" placeholder="Total Marks">
+
+    <button onclick="addMockTest()">
+        Add Mock Test
+    </button>
+
+    <br><br>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Mock Test</th>
+                <th>Marks</th>
+                <th>Total</th>
+                <th>Accuracy</th>
+                <th>Action</th>
+                
+            </tr>
+
+        </thead>
+
+        <tbody id="mockTable"></tbody>
+
+    </table>
+
+</div>
+
+<!-- ================= PROFILE ================= -->
+
+<div id="profile" class="section" style="display:none;">
+
+<h2>👤 Student Profile</h2>
+
+<div class="profileLarge">
+    <h3>👤 Name</h3>
+    <p id="studentName"></p>
+</div>
+
+<div class="profileLarge">
+    <h3>📧 Email</h3>
+    <p id="studentEmail"></p>
+</div>
+
+<div class="profileGrid">
+
+    <div class="profileSmall">
+        <h3>🎯 Exam</h3>
+        <p id="studentExam"></p>
+    </div>
+
+    <div class="profileSmall">
+        <h3>📚 Subjects</h3>
+        <p id="profileSubjects">0</p>
+    </div>
+
+    <div class="profileSmall">
+        <h3>📅 Revisions</h3>
+        <p id="profileRevision">0</p>
+    </div>
+
+    <div class="profileSmall">
+        <h3>✅ Completed</h3>
+        <p id="profileCompleted">0</p>
+    </div>
+
+    <div class="profileSmall">
+        <h3>📝 Mock Tests</h3>
+        <p id="profileMocks">0</p>
+    </div>
+
+    <div class="profileSmall">
+        <h3>🎯 Accuracy</h3>
+        <p id="profileAverage">0%</p>
+    </div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
+

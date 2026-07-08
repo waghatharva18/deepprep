@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet" href="css/app.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>DeepPrep Admin</h2>
+
+<button onclick="showAdmin('dashboard')">
+
+📊 Dashboard
+
+</button>
+
+<button onclick="showAdmin('students')">
+
+👨 Students
+
+</button>
+
+<button onclick="showAdmin('subjects')">
+
+📚 Subjects
+
+</button>
+
+<button onclick="showAdmin('mock')">
+
+📝 Mock Tests
+
+</button>
+
+<button onclick="showAdmin('announcement')">
+
+📢 Announcements
+
+</button>
+
+<button onclick="logoutAdmin()">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+<div class="main">
+
+<div id="dashboard">
+
+<h1>Admin Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Total Students</h3>
+
+<p id="totalStudents">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>Total Subjects</h3>
+
+<p id="totalSubjects">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>Mock Tests</h3>
+
+<p id="totalMocks">0</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="students" style="display:none;">
+
+<h2>Students</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Exam</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="studentTable">
+
+</tbody>
+
+</table>
+
+<hr>
+
+<div id="studentDetails">
+
+</div>
+
+<br><br>
+
+<div id="studentDetails"></div>
+
+</div>
+
+<div id="subjects" style="display:none;">
+
+<h2>📚 Subject Management</h2>
+
+<input
+
+type="text"
+
+id="subjectName"
+
+placeholder="Enter Subject Name">
+
+<button onclick="addAdminSubject()">
+
+Publish Subject
+
+</button>
+
+<br><br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Subject</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="adminSubjectTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<div id="mock" style="display:none;">
+
+<h2>📝 Mock Test Management</h2>
+
+<div class="subjectCard">
+
+<select id="mockStudent">
+<option value="">Select Student</option>
+</select>
+
+<br><br>
+
+<input
+type="text"
+id="mockSubject"
+placeholder="Subject">
+
+<br><br>
+
+<input
+type="text"
+id="mockName"
+placeholder="Mock Test Name">
+
+<br><br>
+
+<input
+type="number"
+id="mockMarks"
+placeholder="Marks Obtained">
+
+<br><br>
+
+<input
+type="number"
+id="mockTotal"
+placeholder="Total Marks">
+
+<br><br>
+
+<button onclick="saveMockTest()">
+
+Save Mock Test
+
+</button>
+
+</div>
+
+<br>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Student</th>
+
+<th>Subject</th>
+
+<th>Mock</th>
+
+<th>Marks</th>
+
+<th>Accuracy</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="adminMockTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<div id="announcement" style="display:none;">
+
+<h2>📢 Publish Announcement</h2>
+
+<input
+type="text"
+id="announcementTitle"
+placeholder="Announcement Title">
+
+<br><br>
+
+<textarea
+id="announcementMessage"
+placeholder="Write announcement here..."
+style="width:100%;height:120px;"></textarea>
+
+<br><br>
+
+<button onclick="publishAnnouncement()">
+
+Publish
+
+</button>
+
+<hr>
+
+<h3>📢 Published Announcements</h3>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+
+<th>Message</th>
+
+<th>Date</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="announcementList">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script src="js/supabase.js"></script>
+
+<script src="js/admin.js"></script>
+
+</body>
+
+</html>

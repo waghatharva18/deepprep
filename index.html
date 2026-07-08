@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepPrep SuccessKit</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="left">
+
+            <h1>DeepPrep SuccessKit</h1>
+
+            <h3>Your Personal Study Companion</h3>
+
+            <p>
+                Plan your preparation, track syllabus,
+                manage revisions and analyse mock tests
+                all in one place.
+            </p>
+
+        </div>
+
+        <div class="right">
+
+            <!-- Login Form -->
+
+            <div id="loginForm">
+
+                <h2>Student Login</h2>
+
+                <input type="email" id="loginEmail" placeholder="Email">
+
+                <input type="password" id="loginPassword" placeholder="Password">
+
+                <button onclick="login()">
+
+                    Login
+
+                </button>
+
+                <br><br>
+
+<button onclick="forgotPassword()" class="forgotBtn">
+
+    Forgot Password?
+
+</button>
+
+                <div class="registerSection">
+
+                    <p>Don't have an account?</p>
+
+                    <button
+                        class="registerBtn"
+                        onclick="showRegister()">
+
+                        Create Student Accounts
+
+                    </button>
+
+                </div>
+                <hr>
+
+                <button class="adminBtn" onclick="window.location='admin.html'">
+
+                    Admin Login
+
+                </button>
+
+            </div>
+
+            <!-- Register Form -->
+
+            <div id="registerForm" style="display:none;">
+
+                <h2>Create Account</h2>
+
+                <input type="text" id="name" placeholder="Full Name">
+
+                <input type="email" id="email" placeholder="Email">
+
+                <input type="text" id="exam" placeholder="Exam (UPSC/MPSC/SSC)">
+
+                <input type="password" id="password" placeholder="Password">
+
+                <button onclick="register()">
+
+                    Register
+
+                </button>
+
+                
+
+                <p>
+
+                    Already have an account?
+
+                    <span onclick="showLogin()">
+
+                        Login
+
+                    </span>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/supabase.js"></script>
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>
