@@ -16,19 +16,46 @@ function showLogin() {
 // ===============================
 // REGISTER
 // ===============================
+// ===============================
+// REGISTER
+// ===============================
 
 async function register() {
 
     const name = document.getElementById("name").value.trim();
+
     const email = document.getElementById("email").value.trim();
+
     const exam = document.getElementById("exam").value.trim();
+
     const password = document.getElementById("password").value;
 
-    if (!name || !email || !exam || !password) {
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    // Validation
+
+    if (!name || !email || !exam || !password || !confirmPassword) {
 
         alert("Please fill all fields.");
 
         return;
+
+    }
+
+    if (password !== confirmPassword) {
+
+        alert("Password and Confirm Password do not match.");
+
+        return;
+
+    }
+
+    if (password.length < 6) {
+
+        alert("Password must be at least 6 characters.");
+
+        return;
+
     }
 
     // Create Authentication User
@@ -49,15 +76,15 @@ async function register() {
         alert(error.message);
 
         return;
-    }
 
-    // Check user
+    }
 
     if (!data.user) {
 
         alert("User not created.");
 
         return;
+
     }
 
     // Save Student Information
@@ -87,6 +114,12 @@ async function register() {
     }
 
     alert("Registration Successful!");
+
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("exam").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("confirmPassword").value = "";
 
     showLogin();
 
